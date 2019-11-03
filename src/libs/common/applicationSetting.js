@@ -17,4 +17,8 @@ export default class ApplicationSetting {
   static getAvatars() {
     return ApplicationSetting.setting.avatars
   }
+
+  static getPrizeImgs() {
+    return ApplicationSetting.setting.prizes
+  }
 }

@@ -13,6 +13,7 @@ import {
 } from "../actions"
 
 const mapStateToProps = (state) => ({
+  loginState: state.loginState,
   settingsState: state.settingsState,
   usersState: state.usersState,
 })

@@ -9,6 +9,8 @@ const messagesEn = {
   "アカウントまたはパスワードが一致しません": "Account or password is incorrect",
   "ログイン処理に失敗しました": "Failed to login process",
   "アバター": "Avatar",
+  "アドレス": "Address",
+  "パスフレーズ": "passphrase",
   // Buttons/Messages
   "登録": "Register",
   "登録中": "Registering...",
@@ -68,6 +70,7 @@ const messagesEn = {
   "ボードの登録に失敗しました": "Failed to register board",
   "ボードの更新に失敗しました": "Failed to update board",
   "ボードの削除に失敗しました": "Failed to delete board",
+  "Prize": "Prize",
 }
 
 export default class I18n {

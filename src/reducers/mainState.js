@@ -1,9 +1,10 @@
 import {
   SWITCH_MAIN_VIEW_EVENT,
 } from "../actions"
+import MainPageTemplate from "../components/templates/MainPageTemplate"
 
 const initialState = {
-  view: undefined,
+  view: MainPageTemplate.View.Settings,
 }
 
 const mainState = (state = initialState, action) => {

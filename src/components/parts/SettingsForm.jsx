@@ -4,7 +4,7 @@ import I18n from "../../libs/common/i18n"
 import Avatar from "../basics/Avatar"
 import { Table, Tooltip, Popconfirm } from "antd"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import BorForm from "./BorForm"
+import PrizeForm from "./PrizeForm"
 import User from "../../libs/models/user"
 
 
@@ -34,10 +34,7 @@ class SettingsForm extends Component {
 
     return (
       <div>
-        Settings Form
-        {
-          this.props.usersState.users.length
-        }
+        Friend List
 
         <Table
           rowKey={record => record.id}
@@ -51,10 +48,9 @@ class SettingsForm extends Component {
           destroyOnClose
           width={500}
         >
-          <BorForm
+          <PrizeForm
+            loginUser={this.props.loginState.loginUser}
             user={this.state.selectedUser}
-            onSaveButtonClick={this.props.onUpdateUserButtonClick}
-            isSavingProcessing={false}
           />
         </Modal>
       </div>
@@ -68,13 +64,16 @@ class SettingsForm extends Component {
         title: I18n.get("名前"),
         dataIndex: "name",
         key: "name",
+        render: (name) => {
+          return <span style={{color: "lemonchiffon"}}>{name}</span>
+        }
       },
       {
         title: "Avatar",
         key: "avatar",
         render: (user) => (
           <div>
-            <Avatar avatar={user.avatar} size={"20px"} /> {user.avatar}
+            <Avatar avatar={user.avatar} size={"20px"} /> <span style={{color: "lemonchiffon"}}>{user.avatar}</span>
           </div>
         ),
       },
@@ -86,7 +85,17 @@ class SettingsForm extends Component {
             <Tooltip title={I18n.get("編集")}>
               <FontAwesomeIcon
                 icon="edit"
-                style={{ color: "forestgreen", marginRight: "5px" }}
+                size="lg"
+                style={{ color: "lightgreen", marginRight: "5px" }}
+                onClick={this.toggleUserDialog}
+              />
+            </Tooltip>
+
+            <Tooltip title={I18n.get("Prize")}>
+              <FontAwesomeIcon
+                icon="award"
+                size="lg"
+                style={{ color: "gold", marginRight: "10px" }}
                 onClick={this.toggleUserDialog}
               />
             </Tooltip>
@@ -100,6 +109,7 @@ class SettingsForm extends Component {
               >
                 <FontAwesomeIcon
                   icon="trash-alt"
+                  size="lg"
                   style={{ color: "hotpink", marginRight: "5px" }}
                 />
               </Popconfirm>

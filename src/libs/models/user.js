@@ -1,9 +1,12 @@
 export default class User {
-  constructor(id, name, avatar, version) {
+  constructor(id, name, avatar, version, address, passphrase, numberOfPrizes) {
     this.id = id
     this.name = name
     this.avatar = avatar
     this.version = version
+    this.address = address
+    this.passphrase = passphrase
+    this.numberOfPrizes = numberOfPrizes
     this.newPassword = ""
   }
 
@@ -17,9 +20,12 @@ export default class User {
 }
 
 export class UserCreateRequest {
-  constructor(name, password, avatar) {
+  constructor(name, password, avatar, address, passphrase, numberOfPrizes) {
     this.name = name
     this.password = password
     this.avatar = avatar
+    this.address = address
+    this.passphrase = passphrase
+    this.numberOfPrizes = numberOfPrizes
   }
 }

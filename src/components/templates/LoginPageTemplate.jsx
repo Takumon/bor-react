@@ -10,7 +10,13 @@ class LoginPageTemplate extends Component {
       return <Redirect to="/main" />
     }
     return (
-      <Div parent>
+      <Div parent style={{
+        background: "url('/images/main-backgroud.png') no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        width: "100%",
+        height: "100%",
+      }}>
         <Div center>
           <LoginForm {...this.props} />
         </Div>

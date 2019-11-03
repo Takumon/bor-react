@@ -34,9 +34,9 @@ class MainPageTemplate extends Component {
           <MenuBarContainer />
         </Row>
         <Row>
-          {(this.props.mainState.view === MainPageTemplate.View.Settings)
-            ? <SettingsContainer />
-            : <BoardsContainer />}
+          {(this.props.mainState.view === MainPageTemplate.View.Boards)
+            ? <BoardsContainer />
+            : <SettingsContainer />}
         </Row>
       </div>
     )

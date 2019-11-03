@@ -14,6 +14,8 @@ class UserForm extends Component {
       name: user.name,
       password: user.password,
       avatar: user.avatar,
+      address: user.address,
+      passphrase: user.passphrase,  
     }
     this.handleTextChange = this.handleTextChange.bind(this)
     this.handleAvatarChange = this.handleAvatarChange.bind(this)
@@ -78,6 +80,30 @@ class UserForm extends Component {
               </div>
             </Col>
           </Row>
+          <Row>
+            <Col span={8}>
+              {I18n.get("アドレス")}:
+            </Col>
+            <Col span={16}>
+              <Input
+                autoFocus={true}
+                value={this.state.address}
+                onChange={(e) => this.handleTextChange(e, "address")}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col span={8}>
+              {I18n.get("パスフレーズ")}:
+            </Col>
+            <Col span={16}>
+              <Input
+                autoFocus={true}
+                value={this.state.passphrase}
+                onChange={(e) => this.handleTextChange(e, "passphrase")}
+              />
+            </Col>
+          </Row>
           <Row style={{ marginTop: "10px" }}>
             <Button
               type="primary"
@@ -88,6 +114,8 @@ class UserForm extends Component {
                     this.state.name,
                     this.state.avatar,
                     this.props.user.version,
+                    this.state.address,
+                    this.state.passphrase,
                   )
                   user.newPassword = this.state.password
                   this.props.onSaveButtonClick(user)

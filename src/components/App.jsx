@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import {
   faUser, faTasks, faCogs, faDoorOpen, faFilter,
-  faEdit, faTrashAlt, faCommentDots,
+  faEdit, faTrashAlt, faCommentDots, faAward,
 } from "@fortawesome/free-solid-svg-icons"
 import LoginContainer from "../containers/LoginContainer"
 import MainContainer from "../containers/MainContainer"
@@ -12,12 +12,14 @@ import ApplicationSetting from "../libs/common/applicationSetting"
 import I18n from "../libs/common/i18n"
 
 import "antd/dist/antd.css"
+import "./App.css"
+
 import styles from "./base.module.css"
 import ApiCommon from "../libs/apis/apiCommon"
 
 library.add(
   faUser, faTasks, faCogs, faDoorOpen, faFilter,
-  faEdit, faTrashAlt, faCommentDots,
+  faEdit, faTrashAlt, faCommentDots, faAward,
 )
 ApplicationSetting.init(settingJson)
 I18n.setLocale(ApplicationSetting.getLocale())

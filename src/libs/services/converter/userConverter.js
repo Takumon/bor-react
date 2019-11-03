@@ -7,6 +7,9 @@ export default class UserConverter {
       response.name,
       response.avatar,
       response.version,
+      response.address,
+      response.passphrase,
+      response.numberOfPrizes,
     )
   }
 
@@ -22,6 +25,8 @@ export default class UserConverter {
       name: userCreateRequest.name,
       password: userCreateRequest.password,
       avatar: userCreateRequest.avatar,
+      address: userCreateRequest.address,
+      passphrase: userCreateRequest.passphrase,
     }
   }
 
@@ -32,6 +37,8 @@ export default class UserConverter {
       password: user.newPassword,
       avatar: user.avatar,
       version: user.version,
+      address: user.address,
+      passphrase: user.passphrase,
     }
   }
 }

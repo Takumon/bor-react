@@ -4,6 +4,7 @@
     "url": "http://localhost:7000",
     "base": "taskboard",
     "img": "static/avatars",
+    "prizeImg": "static/prizes",
     "ext": ".png",
     "wsurl": "ws://localhost:7000/taskboard/ws"
   },
@@ -15,5 +16,10 @@
     "toro",
     "ikura",
     "gopher_paris"
+  ],
+  "prizes": [
+    "shakehands",
+    "sword",
+    "book"
   ]
 }

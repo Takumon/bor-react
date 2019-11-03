@@ -27,7 +27,7 @@ class LoginForm extends Component {
         <Col>
           <Row>
             <div style={{ fontSize: "32px" }}>
-              <font color="cornflowerblue">Taskboard React</font>
+              <img src="images/title.png" />
             </div>
           </Row>
           <Row style={{ marginTop: "10px" }}>
