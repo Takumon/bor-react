@@ -1,4 +1,9 @@
-import { SHOW_ERROR_CLOSE_EVENT, LOGIN_FAILURE_EVENT, SIGNUP_FAILURE_EVENT } from "../actions"
+import {
+  SHOW_ERROR_CLOSE_EVENT,
+  LOGIN_FAILURE_EVENT,
+  SIGNUP_FAILURE_EVENT,
+  GIFT_PRIZE_FAILURE_EVENT,
+} from "../actions"
 
 const initialState = { error: undefined }
 const errorState = (state = initialState, action) => {
@@ -9,6 +14,8 @@ const errorState = (state = initialState, action) => {
       // ログインとサインアップのエラーはログイン画面で処理するため無視する
       return { ...state }
     case SHOW_ERROR_CLOSE_EVENT:
+      return { ...state, error: undefined }
+    case GIFT_PRIZE_FAILURE_EVENT:
       return { ...state, error: undefined }
     default:
       if (action.type.endsWith("_FAILURE_EVENT") && payload.error) {

@@ -14,6 +14,10 @@ export default class ApplicationSetting {
     return ApplicationSetting.setting.server
   }
 
+  static getBcServerSetting() {
+    return ApplicationSetting.setting.bcserver
+  }
+
   static getAvatars() {
     return ApplicationSetting.setting.avatars
   }

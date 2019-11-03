@@ -8,6 +8,10 @@
     "ext": ".png",
     "wsurl": "ws://localhost:7000/taskboard/ws"
   },
+  "bcserver": {
+    "url": "http://localhost:1317",
+    "base": "borservice"
+  },
   "avatars": [
     "gopher",
     "dog",

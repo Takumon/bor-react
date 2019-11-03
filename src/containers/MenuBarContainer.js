@@ -5,6 +5,7 @@ import {
   updateLoginUserStartEvent,
   logoutStartEvent,
   switchMainViewEvent,
+  getPrizeStartEvent,
 } from "../actions"
 
 const mapStateToProps = (state) => ({
@@ -20,6 +21,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onLogoutIconClick: () => {
     dispatch(logoutStartEvent())
+  },
+  loadPrize() {
+    dispatch(getPrizeStartEvent())
   },
 })
 

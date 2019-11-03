@@ -25,6 +25,12 @@ export const DELETE_BOARD_FAILURE_EVENT = "DELETE_BOARD_FAILURE_EVENT"
 export const CHANGE_BOARD_ORDER_START_EVENT = "CHANGE_BOARD_ORDER_START_EVENT"
 export const CHANGE_BOARD_ORDER_SUCCESS_EVENT = "CHANGE_BOARD_ORDER_SUCCESS_EVENT"
 export const CHANGE_BOARD_ORDER_FAILURE_EVENT = "CHANGE_BOARD_ORDER_FAILURE_EVENT"
+export const GIFT_PRIZE_STRART_EVENT = "GIFT_PRIZE_STRART_EVENT"
+export const GIFT_PRIZE_SUCCESS_EVENT = "GIFT_PRIZE_SUCCESS_EVENT"
+export const GIFT_PRIZE_FAILURE_EVENT = "GIFT_PRIZE_FAILURE_EVENT"
+export const GET_PRIZE_STRART_EVENT = "GET_PRIZE_STRART_EVENT"
+export const GET_PRIZE_SUCCESS_EVENT = "GET_PRIZE_SUCCESS_EVENT"
+export const GET_PRIZE_FAILURE_EVENT = "GET_PRIZE_FAILURE_EVENT"
 
 export const listUsersStartEvent = () => ({
   type: LIST_USERS_START_EVENT,
@@ -207,6 +213,50 @@ export const changeBoardOrderSuccessEvent = () => ({
 
 export const changeBoardOrderFailureEvent = (error) => ({
   type: CHANGE_BOARD_ORDER_FAILURE_EVENT,
+  payload: {
+    error,
+  }
+})
+
+
+export const giftPrizeStartEvent = (user, prize, note) => ({
+  type: GIFT_PRIZE_STRART_EVENT,
+  payload: {
+    user,
+    prize,
+    note,
+  }
+})
+
+export const giftPrizeSuccessEvent = () => ({
+  type: GIFT_PRIZE_SUCCESS_EVENT,
+  payload: {
+  }
+})
+
+export const giftPrizeFailureEvent = (error) => ({
+  type: GIFT_PRIZE_FAILURE_EVENT,
+  payload: {
+    error,
+  }
+})
+
+export const getPrizeStartEvent = (getPrizeRequest) => ({
+  type: GET_PRIZE_STRART_EVENT,
+  payload: {
+    getPrizeRequest,
+  }
+})
+
+export const getPrizeSuccessEvent = (prize) => ({
+  type: GET_PRIZE_SUCCESS_EVENT,
+  payload: {
+    prize
+  }
+})
+
+export const getPrizeFailureEvent = (error) => ({
+  type: GIFT_PRIZE_FAILURE_EVENT,
   payload: {
     error,
   }

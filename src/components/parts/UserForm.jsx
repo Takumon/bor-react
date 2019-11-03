@@ -5,6 +5,8 @@ import User from "../../libs/models/user"
 import Avatar from "../basics/Avatar"
 import I18n from "../../libs/common/i18n"
 import ApplicationSetting from "../../libs/common/applicationSetting"
+import PrizeBcService from "../../libs/services/prizeBcService"
+
 
 class UserForm extends Component {
   constructor(props) {
@@ -20,6 +22,7 @@ class UserForm extends Component {
     this.handleTextChange = this.handleTextChange.bind(this)
     this.handleAvatarChange = this.handleAvatarChange.bind(this)
   }
+
 
   render() {
     const avatars = ApplicationSetting.getAvatars()
@@ -94,7 +97,7 @@ class UserForm extends Component {
           </Row>
           <Row>
             <Col span={8}>
-              {I18n.get("パスフレーズ")}:
+              {I18n.get("passphrase,seq,an")}:
             </Col>
             <Col span={16}>
               <Input
@@ -104,6 +107,13 @@ class UserForm extends Component {
               />
             </Col>
           </Row>
+
+          <Row>
+            <Col span={16}>
+              {this.state.prize}
+            </Col>
+          </Row>
+
           <Row style={{ marginTop: "10px" }}>
             <Button
               type="primary"
@@ -144,6 +154,7 @@ class UserForm extends Component {
 
 UserForm.propTypes = {
   user: PropTypes.object.isRequired,
+  loadPrize: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
   isSavingProcessing: PropTypes.bool.isRequired,
 }

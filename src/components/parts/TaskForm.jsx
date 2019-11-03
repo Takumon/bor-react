@@ -53,7 +53,7 @@ class TaskForm extends Component {
                 autoFocus={true}
                 value={this.state.name}
                 onChange={(e) => this.handleTextChange(e, "name")}
-                autosize
+                autoSize
               />
             </Row>
           </Row>
@@ -65,7 +65,7 @@ class TaskForm extends Component {
               <Input.TextArea
                 value={this.state.description}
                 onChange={(e) => this.handleTextChange(e, "description")}
-                autosize={{ minRows: 5, maxRows: 20 }}
+                autoSize={{ minRows: 5, maxRows: 20 }}
               />
             </Row>
           </Row>

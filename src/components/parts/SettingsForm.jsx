@@ -13,14 +13,10 @@ class SettingsForm extends Component {
     super(props)
     this.state = {
       showUserDialog: false,
-      selectedUser: new User(
-        '12345',
-        'MockName',
-        'dog',
-        1,
-      ),
+      selectedUser: null,
     }
     this.toggleUserDialog = this.toggleUserDialog.bind(this)
+    this.openUserDialog = this.openUserDialog.bind(this)
   }
 
   componentDidMount() {
@@ -50,6 +46,7 @@ class SettingsForm extends Component {
         >
           <PrizeForm
             loginUser={this.props.loginState.loginUser}
+            onGiftButtonClick={this.props.onGiftButtonClick}
             user={this.state.selectedUser}
           />
         </Modal>
@@ -87,7 +84,7 @@ class SettingsForm extends Component {
                 icon="edit"
                 size="lg"
                 style={{ color: "lightgreen", marginRight: "5px" }}
-                onClick={this.toggleUserDialog}
+                onClick={() => this.openUserDialog(user)}
               />
             </Tooltip>
 
@@ -96,7 +93,7 @@ class SettingsForm extends Component {
                 icon="award"
                 size="lg"
                 style={{ color: "gold", marginRight: "10px" }}
-                onClick={this.toggleUserDialog}
+                onClick={() => this.openUserDialog(user)}
               />
             </Tooltip>
             <Tooltip title={I18n.get("削除")}>
@@ -120,6 +117,11 @@ class SettingsForm extends Component {
     ]
   }
 
+  openUserDialog(user) {
+    this.setState({ selectedUser: user })
+    this.toggleUserDialog()
+  }
+  
   toggleUserDialog() {
     this.setState({
       showUserDialog: !this.state.showUserDialog,

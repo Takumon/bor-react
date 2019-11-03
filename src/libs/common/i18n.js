@@ -10,7 +10,7 @@ const messagesEn = {
   "ログイン処理に失敗しました": "Failed to login process",
   "アバター": "Avatar",
   "アドレス": "Address",
-  "パスフレーズ": "passphrase",
+  "passphrase,seq,an": "passphrase,seq,an",
   // Buttons/Messages
   "登録": "Register",
   "登録中": "Registering...",

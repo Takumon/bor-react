@@ -7,6 +7,15 @@ import PrizeImg from "../basics/PrizeImg"
 import I18n from "../../libs/common/i18n"
 import ApplicationSetting from "../../libs/common/applicationSetting"
 
+const PrizeAndPrizeLabelMap = {
+  "shakehands": User.PrizeType.Leadership,
+  "sword": User.PrizeType.Bravely,
+  "book": User.PrizeType.Wiseness, 
+}  
+
+function getPrizeLabel(prize) {
+  return PrizeAndPrizeLabelMap[prize]
+}
 class PrizeForm extends Component {
   constructor(props) {
     super(props)
@@ -18,7 +27,7 @@ class PrizeForm extends Component {
     }
     this.prizeImgs = prizeImgs
     this.handleAvatarChange = this.handleAvatarChange.bind(this)
-    this.onSendGifButtonClick = this.onSendGifButtonClick.bind(this)
+    this.onGiftButtonClick = this.onGiftButtonClick.bind(this)
 
     
   }
@@ -46,7 +55,7 @@ class PrizeForm extends Component {
                       />
                     </Row>
                     <Row>
-                      {prizeName}
+                      {getPrizeLabel(prizeName)}
                     </Row>
                   </Col>
                 )  
@@ -57,7 +66,7 @@ class PrizeForm extends Component {
           <Input.TextArea
             value={this.state.note}
             onChange={(e) => this.handleTextChange(e, "note")}
-            autosize={{ minRows: 5, maxRows: 20 }}
+            autoSize={{ minRows: 5, maxRows: 20 }}
             placeholder="add note (optional)"
           />
         </Row>
@@ -65,7 +74,7 @@ class PrizeForm extends Component {
           <Button
             type="primary"
             size="large"
-            onClick={() => this.onSendGifButtonClick(this.props.loginUser, this.props.user, this.state.selectedPrize, this.state.note)}
+            onClick={() => this.onGiftButtonClick(this.props.user, getPrizeLabel(this.state.selectedPrize), this.state.note)}
           >
             Gift
           </Button>
@@ -89,9 +98,8 @@ class PrizeForm extends Component {
     this.setState({ [key]: e.target.value })
   }
 
-  onSendGifButtonClick(sender, reciever, prize, note) {
-    // TODO: Taku
-    console.log(sender, reciever, prize, note)
+  onGiftButtonClick(user, prize, note) {
+    this.props.onGiftButtonClick(user, prize, note)
   }
 }
 

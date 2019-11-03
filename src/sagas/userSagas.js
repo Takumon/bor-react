@@ -15,8 +15,17 @@ import {
   LIST_USERS_START_EVENT,
   listUsersSuccessEvent,
   listUsersFailureEvent,
+  GIFT_PRIZE_STRART_EVENT,
+  giftPrizeSuccessEvent,
+  giftPrizeFailureEvent,
+  GET_PRIZE_STRART_EVENT,
+  getPrizeSuccessEvent,
+  getPrizeFailureEvent,
+  
 } from "../actions"
 import UserService from "../libs/services/userService"
+import PrizeBcService from "../libs/services/prizeBcService"
+
 
 
 function* handleLogin() {
@@ -88,6 +97,38 @@ function* listUsers(/*action*/) {
   }
 }
 
+function* handleGiftPrize() {
+  yield takeEvery(GIFT_PRIZE_STRART_EVENT, giftPrize)
+}
+
+function* giftPrize(action) {
+  const payload = action.payload
+
+  const { error } = yield call(PrizeBcService.updateAsync, payload.user, payload.prize, payload.note)
+  if (!error) {
+    yield put(giftPrizeSuccessEvent())
+  } else {
+    yield put(giftPrizeFailureEvent(error))
+  }
+}
+
+function* handleGetPrize() {
+  yield takeEvery(GET_PRIZE_STRART_EVENT, getPrize)
+}
+
+function* getPrize(action) {
+  const payload = action.payload
+
+  const { prize, error } = yield call(PrizeBcService.getAsync, payload.getPrizeRequest)
+  if (!error) {
+    yield put(getPrizeSuccessEvent(prize))
+  } else {
+    yield put(getPrizeFailureEvent(error))
+  }
+}
+
+
+
 export default class UserSagas {
   static sagaFunctions = () => {
     return [
@@ -96,6 +137,9 @@ export default class UserSagas {
       handleLogout,
       handleUpdateLoginUser,
       handleListUsers,
+      handleGiftPrize,
+      handleGetPrize,
     ]
   }
 }
+

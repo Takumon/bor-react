@@ -63,6 +63,7 @@ class MenuBar extends Component {
         >
           <UserForm
             user={this.props.loginState.loginUser}
+            loadPrize={this.props.loadPrize}
             onSaveButtonClick={this.props.onUserProfileSaveButtonClick}
             isSavingProcessing={this.props.loginState.isSaveUserProcessing}
           />

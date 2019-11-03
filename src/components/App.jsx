@@ -16,6 +16,7 @@ import "./App.css"
 
 import styles from "./base.module.css"
 import ApiCommon from "../libs/apis/apiCommon"
+import BcApiCommon from "../libs/apis/bcApiCommon"
 
 library.add(
   faUser, faTasks, faCogs, faDoorOpen, faFilter,
@@ -24,6 +25,7 @@ library.add(
 ApplicationSetting.init(settingJson)
 I18n.setLocale(ApplicationSetting.getLocale())
 ApiCommon.init(ApplicationSetting.getServerSetting())
+BcApiCommon.init(ApplicationSetting.getBcServerSetting())
 
 const App = () => (
   <BrowserRouter>

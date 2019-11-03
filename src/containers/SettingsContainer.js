@@ -10,6 +10,7 @@ import {
   updateBoardStartEvent,
   deleteBoardStartEvent,
   changeBoardOrderStartEvent,
+  giftPrizeStartEvent,
 } from "../actions"
 
 const mapStateToProps = (state) => ({
@@ -45,6 +46,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeBoardOrderLinkClick(boards) {
     dispatch(changeBoardOrderStartEvent(boards))
+  },
+  onGiftButtonClick(user, prize, note) {
+    dispatch(giftPrizeStartEvent(user, prize, note))
   },
 })
 
